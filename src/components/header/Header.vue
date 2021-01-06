@@ -5,7 +5,7 @@
                 <div id="logo" class="col-md-3 col-sm-12 col-xs-12">
                     <p>
                         <a href="#" style="color: white;font-family: cursive;font-weight: bold; font-size:25px">
-                        <img src="./assets/image/logo.jpg" style="width:38%"/>Apple Store</a>
+                        <img src="@/assets/image/logo.jpg" style="width:38%"/>Apple Store</a>
                         
                     </p>
                 </div>

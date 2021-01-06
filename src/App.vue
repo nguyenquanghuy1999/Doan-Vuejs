@@ -21,10 +21,6 @@ export default {
 
 
 
-// require('@/assets/css/bootstrap.min.frontend.css'),
-// require('@/assets/css/fhome.css'),
-// require('@/assets/css/font-awesome.min.css'),
-// require('@/assets/css/footer.css')
 
 
 </script>
