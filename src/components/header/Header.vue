@@ -17,8 +17,8 @@
                 </div>
                 <div id="cart" class="col-md-2 col-sm-12 col-xs-12" style="margin-left: 87px;">
                     <a class="display" href="#">
-                        <img src="#">
-                       <a style="margin-left: -25%;color: black;"></a></a>
+                        <img src="@/assets/image/icon-cart.png">
+                       <a style="margin-left: -22%;color: black;">0</a></a>
                 </div>
                 <div>
                     <h4 style="margin-top: 60%;font-family: auto;"><a href="#" style="color: white;">Login</a></h4>
