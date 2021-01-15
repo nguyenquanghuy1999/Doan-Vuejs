@@ -18,9 +18,6 @@ import Footer from './components/general/Footer'
 import Master from './components/layouts/Master'
 import Body from './components/Body'
 
-
-
-
 export default {
   name: 'App',
   components: {
