@@ -7,7 +7,10 @@
                         <ul style="font-weight: bold;">
                             <li class="menu-item" >Danh mục sản phẩm</li>
                            
-                            <li class="menu-item" ><a href=""></a></li>
+                            <li class="menu-item" ><a href="">MacBook</a></li>
+                            <li class="menu-item" ><a href="">Iphone</a></li>
+                            <li class="menu-item" ><a href="">Ipad</a></li>
+                            <li class="menu-item" ><a href="">Watch</a></li>
                             
                         </ul>
                         
@@ -16,7 +19,7 @@
                             <img src="@/assets/image/quangcao1.jpg" style="width: 100% ;height: 22em; margin-top: 1em;">
                             <img src="@/assets/image/quangcao2.jpg" style="width: 100% ;height: 22em;">
                             <img src="@/assets/image/quangcao3.jpg" style="width: 100% ;height: 22em;">
-                            <img src="@/assets/image/side-3.png" style="width: 100% ;height: 22em;">
+                            <img src="@/assets/image/slide-3.png" style="width: 100% ;height: 22em;">
                         </div>
 
                 </div>

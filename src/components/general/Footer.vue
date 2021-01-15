@@ -48,11 +48,15 @@
             </div>
         </div>
     </footer>
+    
+
 </template>
-
+    
 <script>
-export default {
 
+export default {
+    name: 'Footer',
+  
 }
 </script>
 

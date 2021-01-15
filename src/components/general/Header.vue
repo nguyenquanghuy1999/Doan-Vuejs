@@ -29,8 +29,7 @@
 </template>
 
 <script>
-import Sidebar from './Sidebar.vue'
-import Banner from './Banner.vue'
+
 export default {
     name: 'Header',
     components: {

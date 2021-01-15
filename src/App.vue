@@ -1,34 +1,39 @@
 <template>
   <div id="app">
-    <Header></Header>
-    <Body></Body>
-    <Footer></Footer>
-     
-    
+  
+   <Master>
+    <div class="container">
+       <div class="row">
+          <Body></Body>
+       </div>
+       <div>
+         <Product></Product>
+      </div>   
+    </div>
+   </Master>
    
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Body from './components/Body.vue'
-import Footer from './components/Footer.vue'
-
+import Header from './components/general/Header'
+import Footer from './components/general/Footer'
+import Master from './components/layouts/Master'
+import Body from './components/Body'
+import Product from './components/pages/Product'
 
 
 export default {
   name: 'App',
   components: {
     Header,
+    Footer,
+    Master,
     Body,
-    Footer
-    
-
-
+    Product
+   
   }
 }
 
-
-
-
+    
 </script>
