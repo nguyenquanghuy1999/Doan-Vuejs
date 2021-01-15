@@ -6,7 +6,7 @@
        <div class="row">
           <Body></Body>
        </div>
-       <div>
+       <div class="row">
          <Product></Product>
       </div>   
     </div>
