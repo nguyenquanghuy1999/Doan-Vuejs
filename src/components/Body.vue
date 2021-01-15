@@ -52,15 +52,26 @@
                     </div>
                   
                 </div>
+                <div>
+                    <Product></Product>
+                </div>
+
             </div>
         </div>
     </section>
 </template>
 
 <script>
+
+import Product from './pages/Product'
+
 export default {
+    components:{
+        Product
+    }
 
 }
+    
 </script>
 
 <style>
