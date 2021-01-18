@@ -12,12 +12,15 @@
 import Master from '../layouts/Master'
 import Body from '../pages/Body'
 
+
 export default {
     name: 'Home',
     components: {
         Master,
         Body
-    }
+      
+    },
+     
 
 }
 </script>

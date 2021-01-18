@@ -46,8 +46,10 @@
                             <span class="sr-only">Next</span>
                         </a>
                     </div>
-                     <div>
-                        <Product/>
+                    <div class="row">
+                        <div class="col-md-4" v-for="product in productList" :key="product.id">
+                            <Product :name="product.name" :price="product.price" :image="product.image"></Product>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -62,7 +64,24 @@ import Product from './Product'
 export default {
     components:{
         Product
+    },
+     data() {
+        return {
+            productList:[]
+        }
+    },
+    created() {
+        this.$http.get('http://127.0.0.1:8000/api/product').then(response => {
+        // success callback
+            this.productList = response.body;
+        },
+         response => {
+        // error callback
+            console.log(response)
+        });
+
     }
+
 
 }
     
