@@ -48,7 +48,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4" v-for="product in productList" :key="product.id">
-                            <Product :name="product.name" :price="product.price" :image="product.image"></Product>
+                              <Product :name="product.login" :price="product.id" :image="product.avatar_url"></Product>
                         </div>
                     </div>
                 </div>
@@ -61,6 +61,7 @@
 
 import Product from './Product'
 
+
 export default {
     components:{
         Product
@@ -71,16 +72,14 @@ export default {
         }
     },
     created() {
-        this.$http.get('http://127.0.0.1:8000/api/product').then(response => {
-        // success callback
-            this.productList = response.body;
-        },
-         response => {
-        // error callback
-            console.log(response)
-        });
-
-    }
+    this.$http.get(`https://github.com/nguyenquanghuy1999/api-product/blob/master/db.json`)
+    .then(response => {
+      this.productList = response.data
+    })
+    .catch(e => {
+      this.errors.push(e)
+    })
+  }
 
 
 }
