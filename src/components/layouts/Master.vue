@@ -1,10 +1,10 @@
 <template>
     <div>
-        <Header/>
-            <div>
-                <slot/>
-            </div>
-        <Footer/>
+        <Header></Header>
+           <div>
+               <slot/>
+           </div>
+        <Footer></Footer>
     </div>
   
 </template>
@@ -12,6 +12,7 @@
 <script>
 import Header from '../general/Header'
 import Footer from '../general/Footer'
+
 
 export default {
     name: 'Master',
