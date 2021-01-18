@@ -1,7 +1,9 @@
 <template>
     <div>
         <Header></Header>
-        <Body></Body>
+            <div>
+                <slot/>
+            </div>
         <Footer></Footer>
     </div>
   
@@ -10,15 +12,15 @@
 <script>
 import Header from '../general/Header'
 import Footer from '../general/Footer'
-import Body from '../Body'
+
 
 
 export default {
     name: 'Master',
     components: {
         Header,
-        Footer,
-        Body
+        Footer
+        
       
     }
 

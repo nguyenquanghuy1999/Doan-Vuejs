@@ -6,7 +6,7 @@
                     <nav id="menu">
                         <ul style="font-weight: bold;">
                             <li class="menu-item" >Danh mục sản phẩm</li>
-                            <li class="menu-item" ><a href="">MacBook</a></li>
+                            <li class="menu-item" ><router-link to="product">Macbook</router-link></li>
                             <li class="menu-item" ><a href="">Iphone</a></li>
                             <li class="menu-item" ><a href="">Ipad</a></li>
                             <li class="menu-item" ><a href="">Watch</a></li>        
@@ -57,7 +57,7 @@
 
 <script>
 
-import Product from './pages/Product'
+import Product from './Product'
 
 export default {
     components:{

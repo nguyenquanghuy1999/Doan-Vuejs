@@ -1,75 +1,12 @@
 <template>
-<div id="wrap-inner" class="col-md-12" >
-    <div class="products">
-        <h3>Các sản phẩm của chúng tôi</h3>        
-        <div class="products-list row">
-            <div class="product-item col-md-3 col-sm-6 col-xs-12">
-                <a href="#"><img src="@/assets/upload/ip.png" style="height: 100px;" class="img-thumbnail"></a>
-                <p><a href="#"></a>Iphone Xs Max</p>
-                <p class="price">12.000.000₫</p>
-                <div class="marsk">
-                    <a href="">Xem chi tiết</a>
-                </div>
-            </div>
-            <div class="product-item col-md-3 col-sm-6 col-xs-12">
-                <a href="#"><img src="@/assets/upload/ip1.png" style="height: 100px;" class="img-thumbnail"></a>
-                <p><a href="#"></a>Iphone Xs Max</p>
-                <p class="price">12.000.000₫</p>
-                <div class="marsk">
-                    <a href="">Xem chi tiết</a>
-                </div>
-            </div>
-            <div class="product-item col-md-3 col-sm-6 col-xs-12">
-                <a href="#"><img src="@/assets/upload/ip2.jpg" style="height: 100px;" class="img-thumbnail"></a>
-                <p><a href="#"></a>Iphone Xs Max</p>
-                <p class="price">12.000.000₫</p>
-                <div class="marsk">
-                    <a href="">Xem chi tiết</a>
-                </div>
-            </div>
-            <div class="product-item col-md-3 col-sm-6 col-xs-12">
-                <a href="#"><img src="@/assets/upload/ip3.jpg" style="height: 100px;" class="img-thumbnail"></a>
-                <p><a href="#"></a>Iphone Xs Max</p>
-                <p class="price">12.000.000₫</p>
-                <div class="marsk">
-                    <a href="">Xem chi tiết</a>
-                </div>
-            </div>
-            <div class="product-item col-md-3 col-sm-6 col-xs-12">
-                <a href="#"><img src="@/assets/upload/ip4.png" style="height: 100px;" class="img-thumbnail"></a>
-                <p><a href="#"></a>Iphone Xs Max</p>
-                <p class="price">12.000.000₫</p>
-                <div class="marsk">
-                    <a href="">Xem chi tiết</a>
-                </div>
-            </div>
-            <div class="product-item col-md-3 col-sm-6 col-xs-12">
-                <a href="#"><img src="@/assets/upload/ip5.jpg" style="height: 100px;" class="img-thumbnail"></a>
-                <p><a href="#"></a>Iphone Xs Max</p>
-                <p class="price">12.000.000₫</p>
-                <div class="marsk">
-                    <a href="">Xem chi tiết</a>
-                </div>
-            </div>
-            <div class="product-item col-md-3 col-sm-6 col-xs-12">
-                <a href="#"><img src="@/assets/upload/ip6.jpg" style="height: 100px;" class="img-thumbnail"></a>
-                <p><a href="#"></a>Iphone Xs Max</p>
-                <p class="price">12.000.000₫</p>
-                <div class="marsk">
-                    <a href="">Xem chi tiết</a>
-                </div>
-            </div>
-            <div class="product-item col-md-3 col-sm-6 col-xs-12">
-                <a href="#"><img src="@/assets/upload/ip7.png" style="height: 100px;" class="img-thumbnail"></a>
-                <p><a href="#"></a>Iphone Xs Max</p>
-                <p class="price">12.000.000₫</p>
-                <div class="marsk">
-                    <a href="">Xem chi tiết</a>
-                </div>
-            </div>
-        </div> 
-    </div>
-</div> 
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
 </template>
 
 <script>
