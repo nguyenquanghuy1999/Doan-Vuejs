@@ -72,7 +72,7 @@ export default {
         }
     },
     created() {
-    this.$http.get(`https://github.com/nguyenquanghuy1999/api-product/blob/master/db.json`)
+    this.$http.get(`https://api.github.com/users/hadley/orgs`)
     .then(response => {
       this.productList = response.data
     })
