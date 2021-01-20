@@ -6,7 +6,7 @@
                     <nav id="menu">
                         <ul style="font-weight: bold;">
                             <li class="menu-item" >Danh mục sản phẩm</li>
-                            <li class="menu-item" ><router-link to="product">Macbook</router-link></li>
+                            <li class="menu-item" ><a href="">Macbook</a></li>
                             <li class="menu-item" ><a href="">Iphone</a></li>
                             <li class="menu-item" ><a href="">Ipad</a></li>
                             <li class="menu-item" ><a href="">Watch</a></li>        
@@ -28,13 +28,13 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="d-block w-100" src="@/assets/image/banner1.jpg" alt="First slide" style="height:27em;">
+                                <img class="d-block w-100" src="@/assets/image/banner1.jpg" alt="First slide" style="height:25em;">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="@/assets/image/banner2.jpg" alt="Second slide" style="height:27em;">
+                                <img class="d-block w-100" src="@/assets/image/banner2.jpg" alt="Second slide" style="height:25em;">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="@/assets/image/banner3.jpg" alt="Third slide" style="height:27em;" >
+                                <img class="d-block w-100" src="@/assets/image/banner3.jpg" alt="Third slide" style="height:25em;" >
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -46,10 +46,16 @@
                             <span class="sr-only">Next</span>
                         </a>
                     </div>
+                    <div class="title-product">
+                        <h3>*Các sản phẩm của chúng tôi*</h3>
+                    </div>
                     <div class="row">
                         <div class="col-md-4" v-for="product in productList" :key="product.id">
-                              <Product :name="product.login" :price="product.id" :image="product.avatar_url"></Product>
+                              <Product :name="product.name" :price="product.price" :image="product.image"></Product>
                         </div>
+                    </div>
+                    <div>
+                        <Pagination></Pagination>
                     </div>
                 </div>
             </div>
@@ -60,21 +66,23 @@
 <script>
 
 import Product from './Product'
+import Pagination from './Pagination'
 
 
 export default {
     components:{
-        Product
+        Product,
+        Pagination
     },
      data() {
         return {
-            productList:[]
+            productList:[],
         }
     },
     created() {
-    this.$http.get(`https://api.github.com/users/hadley/orgs`)
+    this.$http.get(`http://127.0.0.1:8000/api/product`)
     .then(response => {
-      this.productList = response.data
+      this.productList = response.data.data
     })
     .catch(e => {
       this.errors.push(e)
@@ -86,6 +94,16 @@ export default {
     
 </script>
 
-<style>
-
+<style scoped>
+.title-product{
+    border-style: groove;
+    text-align: center;
+    margin-top: 1%;
+    padding-top: 5px;
+    background-color: aliceblue;
+    color: coral;
+    font-style: italic;
+    font-family: auto;
+}
 </style>
+
