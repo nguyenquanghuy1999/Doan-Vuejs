@@ -3,6 +3,8 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import { router } from './routes'
 import VueResource from 'vue-resource'
+import 'bootstrap'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 

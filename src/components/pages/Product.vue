@@ -1,16 +1,21 @@
 <template>
+
+      
     <div class="container">
-        <div class="row"> 
-            <div class="card" style="width: 15rem;">
-                <img :src="require(`@/assets/upload/${image}`)" class="card-img-top" style="height:10em; padding-top: 2%;">
-                <div class="card-body">
-                    <h5 class="card-title">{{name}}</h5>
-                    <p class="card-text">{{price}}đ</p>
-                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
+        <div class="row">
+            <div class="product-item col-md-3 col-sm-6 col-xs-12">
+                <a href="#"><img :src="require(`@/assets/upload/${image}`)" style="height: 100px;" class="img-thumbnail"></a>
+                <p><a href="#"></a>Iphone Xs Max</p>
+                <p class="price">12.000.000₫</p>
+                <div class="marsk">
+                    <a href="">Xem chi tiết</a>
                 </div>
             </div>
+
         </div>
     </div>
+     
+ 
 
 </template>
 

@@ -49,11 +49,9 @@
                     <div class="title-product">
                         <h3>*Các sản phẩm của chúng tôi*</h3>
                     </div>
-                    <div class="row">
-                        <div class="col-md-4" v-for="product in productList" :key="product.id">
-                              <Product :name="product.name" :price="product.price" :image="product.image"></Product>
+                        <div v-for="product in productList" :key="product.id">
+                            <Product :name="product.name" :price="product.price" :image="product.image"></Product>
                         </div>
-                    </div>
                     <div>
                         <Pagination></Pagination>
                     </div>
