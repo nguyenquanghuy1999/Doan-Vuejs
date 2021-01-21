@@ -1,5 +1,6 @@
 <template>
-   <section id="body">
+   <Master>
+       <section id="body">
         <div class="container">
             <div class="row">
                 <div id="sidebar" class="col-md-3" >
@@ -46,42 +47,46 @@
                             <span class="sr-only">Next</span>
                         </a>
                     </div>
-                    <div class="title-product">
-                        <h3>*Các sản phẩm của chúng tôi*</h3>
-                    </div>
-                    <div class="container" style="padding-top: 1%;">
-                        <div class="row">
-                            <div class="product-item col-md-3 col-sm-6 col-xs-12" v-for="product in productList" :key="product.id">
-                                <Product :name="product.name" :price="product.price" :image="product.image" :desc="product.desc" :soluong="product.soluong"></Product>
+                    <div id="wrap-inner" class="col-md-10" > 
+                        <div id="row list-product-info" style="margin-top: 3em;border-style: groove;">
+                            <div class="clearfix"></div>
+                                <h3>{{name}}</h3>
+                                    <div class="row" >
+                                        <div id="product-img" class="col-xs-12 col-sm-12 col-md-5 text-center">
+                                            <img src="#">
+                                        </div>
+                                        <div id="product-details" class="col-xs-12 col-sm-12 col-md-6" style="font-weight: bold">
+                                            <p>Giá: <span class="price">₫</span></p>
+                                            <p>Bảo hành: 1 đổi 1 trong 12 tháng</p>
+                                            <p>Phụ kiện: Dây cáp sạc, tai nghe</p>
+                                            <p>Tình trạng: Máy mới 100%</p>
+                                            <p>Khuyến mại: Hỗ trợ trả góp 0% dành cho các chủ thẻ Ngân hàng Sacombank</p>
+                                            <p>Còn hàng: Còn  sản phẩm</p>
+                                            <p class="add-cart text-center"><a href="">Thêm Vào Giỏ Hàng</a></p>
+                                        </div>
+                                    </div>
+                            </div>
+                                <div id="product-detail">
+                                    <h3>Chi tiết sản phẩm</h3>
+                                    <p class="text-justify"></p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <Pagination></Pagination>
-                    </div>
                 </div>
-            </div>
-        </div>
     </section>
+   </Master>
+    
 </template>
 
 <script>
-
-import Product from './Product'
-import Pagination from './Pagination'
-
+import Master from '../layouts/Master'
 
 export default {
     components:{
-        Product,
-        Pagination
+        Master
     },
-     data() {
-        return {
-            productList:[],
-        }
-    },
-    created() {
+     created() {
     this.$http.get(`http://127.0.0.1:8000/api/product`)
     .then(response => {
       this.productList = response.data.data
@@ -90,22 +95,13 @@ export default {
       this.errors.push(e)
     })
   }
-
-
+     
 }
-    
+   
+
+
 </script>
 
-<style scoped>
-.title-product{
-    border-style: groove;
-    text-align: center;
-    margin-top: 1%;
-    padding-top: 5px;
-    background-color: aliceblue;
-    color: coral;
-    font-style: italic;
-    font-family: auto;
-}
-</style>
+<style>
 
+</style>
