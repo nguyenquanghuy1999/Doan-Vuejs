@@ -10,7 +10,9 @@ export const router = new VueRouter({
     mode: 'history',
     routes: [
         {path: '/', component: Home},
-        {path: '/productdetail', component: ProductDetail}
+        {path: '/productdetail', component: ProductDetail},
+        
+      
         
         
               

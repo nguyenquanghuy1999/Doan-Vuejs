@@ -1,4 +1,4 @@
-<template>
+<template v-for="host in workgroup.hosts">
    <Master>
        <section id="body">
         <div class="container">
@@ -50,8 +50,8 @@
                     <div id="wrap-inner" class="col-md-10" > 
                         <div id="row list-product-info" style="margin-top: 3em;border-style: groove;">
                             <div class="clearfix"></div>
-                                <h3>{{name}}</h3>
-                                    <div class="row" >
+                                <h3>name</h3>
+                                    <div class="row">
                                         <div id="product-img" class="col-xs-12 col-sm-12 col-md-5 text-center">
                                             <img src="#">
                                         </div>
@@ -86,15 +86,8 @@ export default {
     components:{
         Master
     },
-     created() {
-    this.$http.get(`http://127.0.0.1:8000/api/product`)
-    .then(response => {
-      this.productList = response.data.data
-    })
-    .catch(e => {
-      this.errors.push(e)
-    })
-  }
+     
+  
      
 }
    

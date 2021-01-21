@@ -5,6 +5,7 @@
         <p class="price">{{ formatPrice(price) }}₫</p>
         <div class="marsk" >
             <router-link to="/productdetail">Xem chi tiết</router-link> 
+           
         </div>
     </div>
 </template>

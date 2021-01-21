@@ -47,7 +47,7 @@
                         </a>
                     </div>
                     <div class="title-product">
-                        <h3>*Các sản phẩm của chúng tôi*</h3>
+                        <h3>Các sản phẩm của chúng tôi</h3>
                     </div>
                     <div class="container" style="padding-top: 1%;">
                         <div class="row">
