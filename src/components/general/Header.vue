@@ -3,11 +3,9 @@
         <div class="container">
             <div class="row-logo">
                 <div id="logo" class="col-md-3 col-sm-12 col-xs-12">
-                    <p>
-                        <a href="#" style="color: white;font-family: cursive;font-weight: bold; font-size:25px">
-                        <img src="@/assets/image/logo.jpg" style="width:38%"/>Apple Store</a>
-                        
-                    </p>
+                        <router-link to="/" style="color: white;font-family: cursive;font-weight: bold; font-size:25px">
+                        <img src="@/assets/image/logo.jpg" style="width:38%"/>Apple Store
+                        </router-link>
                 </div>
                 <div id="search" class="col-md-6 col-sm-12 col-xs-12">
                     <form class="navbar-form" role="search" method="get" action="#" style="margin-left: 80px;">
@@ -18,7 +16,8 @@
                 <div id="cart" class="col-md-2 col-sm-12 col-xs-12" style="margin-left: 87px;">
                     <a class="display" href="#">
                         <img src="@/assets/image/icon-cart.png">
-                       <a style="margin-left: -22%;color: black;">0</a></a>
+                       <a style="margin-left: -22%;color: black;">0</a>
+                    </a>
                 </div>
                 <div>
                     <h4 style="margin-top: 60%;font-family: auto;"><a href="#" style="color: white;">Login</a></h4>

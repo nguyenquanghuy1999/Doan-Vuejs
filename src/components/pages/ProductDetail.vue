@@ -1,5 +1,5 @@
-<template v-for="host in workgroup.hosts">
-   <Master>
+<template>
+   
        <section id="body">
         <div class="container">
             <div class="row">
@@ -50,7 +50,7 @@
                     <div id="wrap-inner" class="col-md-10" > 
                         <div id="row list-product-info" style="margin-top: 3em;border-style: groove;">
                             <div class="clearfix"></div>
-                                <h3>name</h3>
+                                <h3>{{name}}</h3>
                                     <div class="row">
                                         <div id="product-img" class="col-xs-12 col-sm-12 col-md-5 text-center">
                                             <img src="#">
@@ -75,21 +75,35 @@
                     </div>
                 </div>
     </section>
-   </Master>
+   
     
 </template>
 
 <script>
-import Master from '../layouts/Master'
 
 export default {
-    components:{
-        Master
+    data(){
+        return{
+            productId: this.$route.params.id,
+        }
     },
+     created() {
+    this.$http.get(`http://127.0.0.1:8000/api/product`+ this.productId)
+    .then(response => {
+      this.productList = response.data.data
+    })
+    .catch(e => {
+      this.errors.push(e)
+    })
+  }
+    
+    
      
+
+}
   
      
-}
+
    
 
 
