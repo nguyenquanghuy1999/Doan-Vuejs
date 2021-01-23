@@ -52,7 +52,7 @@
                     <div class="container" style="padding-top: 1%;">
                         <div class="row">
                             <div class="product-item col-md-3 col-sm-6 col-xs-12" v-for="product in productList" :key="product.id">
-                                <Product :name="product.name" :price="product.price" :image="product.image" :desc="product.desc" :soluong="product.soluong"></Product>
+                                <Product :name="product.name" :price="product.price" :image="product.image"></Product>
                             </div>
                         </div>
                     </div>

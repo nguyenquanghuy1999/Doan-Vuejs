@@ -1,6 +1,5 @@
 <template>
-   
-       <section id="body">
+       <section id="body" >
         <div class="container">
             <div class="row">
                 <div id="sidebar" class="col-md-3" >
@@ -47,7 +46,7 @@
                             <span class="sr-only">Next</span>
                         </a>
                     </div>
-                    <div id="wrap-inner" class="col-md-10" > 
+                    <div id="wrap-inner" class="col-md-10" v-for="product in productList" :key="product.id"> 
                         <div id="row list-product-info" style="margin-top: 3em;border-style: groove;">
                             <div class="clearfix"></div>
                                 <h3>{{name}}</h3>
@@ -76,7 +75,6 @@
                 </div>
     </section>
    
-    
 </template>
 
 <script>
@@ -85,10 +83,18 @@ export default {
     data(){
         return{
             productId: this.$route.params.id,
+            productList:[]
         }
     },
+     props: {
+        name: String,
+        price: String,
+        image: String,
+        soluong: String,
+        desc: String
+    }, 
      created() {
-    this.$http.get(`http://127.0.0.1:8000/api/product`+ this.productId)
+    this.$http.get(`http://127.0.0.1:8000/api/product/get?id=`+ this.productId)
     .then(response => {
       this.productList = response.data.data
     })

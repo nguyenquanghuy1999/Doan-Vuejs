@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <div >
         <a href="#"><img :src="require(`@/assets/upload/${image}`)" style="height: 100px;" class="img-thumbnail"></a>
         <p><a href="#"></a>{{name}}</p>
         <p class="price">{{ formatPrice(price) }}₫</p>
         <div class="marsk">
-            <router-link to="/productdetail">Xem chi tiết</router-link> 
+            <router-link :to="'/detail/' + product.id">Xem chi tiết</router-link> 
             
         </div>
     </div>
@@ -14,6 +14,7 @@
 
 export default {
     props: {
+        
         name: String,
         price: String,
         image: String,
