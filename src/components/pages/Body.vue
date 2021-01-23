@@ -66,7 +66,7 @@
 </template>
 
 <script>
-
+import axios from 'axios'
 import Product from './Product'
 import Pagination from './Pagination'
 
@@ -82,7 +82,7 @@ export default {
         }
     },
     created() {
-    this.$http.get(`http://127.0.0.1:8000/api/product`)
+    axios.get(`http://127.0.0.1:8000/api/product`)
     .then(response => {
       this.productList = response.data.data
     })

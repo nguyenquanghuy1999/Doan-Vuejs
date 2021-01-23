@@ -1,7 +1,9 @@
 <template>
 <div class="detail">
   <Master>
+    <div>
       <ProductDetail :id="productId"></ProductDetail>
+    </div>
   </Master>
 </div>
 </template>
@@ -16,13 +18,13 @@ export default {
         ProductDetail
     },
     data() {
-    return {
-      productId: this.$route.params.id,
-   
-    }
-    },
+      return {
+        productId: this.$route.params.id,
+       
     
-
+      }
+    },
+   
 }
 
 </script>

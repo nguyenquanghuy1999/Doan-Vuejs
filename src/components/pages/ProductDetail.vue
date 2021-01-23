@@ -1,5 +1,5 @@
 <template>
-       <section id="body" >
+    <section id="body" >
         <div class="container">
             <div class="row">
                 <div id="sidebar" class="col-md-3" >
@@ -46,16 +46,16 @@
                             <span class="sr-only">Next</span>
                         </a>
                     </div>
-                    <div id="wrap-inner" class="col-md-10" v-for="product in productList" :key="product.id"> 
+                    <div id="wrap-inner" class="col-md-10" v-for="product in products" :key="product.id"> 
                         <div id="row list-product-info" style="margin-top: 3em;border-style: groove;">
                             <div class="clearfix"></div>
                                 <h3>{{name}}</h3>
                                     <div class="row">
                                         <div id="product-img" class="col-xs-12 col-sm-12 col-md-5 text-center">
-                                            <img src="#">
+                                            <img :src="require(`@/assets/upload/${image}`)">
                                         </div>
                                         <div id="product-details" class="col-xs-12 col-sm-12 col-md-6" style="font-weight: bold">
-                                            <p>Giá: <span class="price">₫</span></p>
+                                            <p>Giá: <span class="price">{{price}}₫</span></p>
                                             <p>Bảo hành: 1 đổi 1 trong 12 tháng</p>
                                             <p>Phụ kiện: Dây cáp sạc, tai nghe</p>
                                             <p>Tình trạng: Máy mới 100%</p>
@@ -69,21 +69,22 @@
                                     <h3>Chi tiết sản phẩm</h3>
                                     <p class="text-justify"></p>
                                 </div>
-                            </div>
                         </div>
                     </div>
                 </div>
-    </section>
-   
+            </div>     
+ </section>
+                
+       
 </template>
 
 <script>
-
+import axios from "axios"
 export default {
     data(){
         return{
             productId: this.$route.params.id,
-            productList:[]
+            products:[]
         }
     },
      props: {
@@ -93,23 +94,17 @@ export default {
         soluong: String,
         desc: String
     }, 
-     created() {
-    this.$http.get(`http://127.0.0.1:8000/api/product/get?id=`+ this.productId)
-    .then(response => {
-      this.productList = response.data.data
-    })
-    .catch(e => {
-      this.errors.push(e)
-    })
-  }
-    
-    
-     
-
+    created() {
+        axios.get("http://127.0.0.1:8000/api/product/" + this.productId)
+        .then(response => {
+        this.products = response.data.data
+        })
+        .catch(e => {
+        this.errors.push(e)
+        })
+    }
 }
-  
-     
-
+    
    
 
 
