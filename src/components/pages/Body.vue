@@ -53,6 +53,9 @@
                         <div class="row">
                             <div class="product-item col-md-3 col-sm-6 col-xs-12" v-for="product in productList" :key="product.id">
                                 <Product :name="product.name" :price="product.price" :image="product.image"></Product>
+                                <div class="marsk">
+                                    <router-link :to="'/detail/' + product.id">Xem chi tiết {{idProduct}}</router-link>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -79,6 +82,7 @@ export default {
      data() {
         return {
             productList:[],
+            productId: this.$route.params.id
         }
     },
     created() {

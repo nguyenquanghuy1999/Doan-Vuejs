@@ -46,33 +46,34 @@
                             <span class="sr-only">Next</span>
                         </a>
                     </div>
-                    <div id="wrap-inner" class="col-md-10" v-for="product in products" :key="product.id"> 
+                    
+                    <div id="wrap-inner" class="col-md-10"> 
                         <div id="row list-product-info" style="margin-top: 3em;border-style: groove;">
                             <div class="clearfix"></div>
-                                <h3>{{name}}</h3>
+                                <h3 style="margin: 10px 0 0 41px;">{{product.name}}</h3>
                                     <div class="row">
                                         <div id="product-img" class="col-xs-12 col-sm-12 col-md-5 text-center">
-                                            <img :src="require(`@/assets/upload/${image}`)">
+                                            <img :src="require(`@/assets/upload/${product.image}`)" style="height: 15em;margin-top: 34px">
                                         </div>
                                         <div id="product-details" class="col-xs-12 col-sm-12 col-md-6" style="font-weight: bold">
-                                            <p>Giá: <span class="price">{{price}}₫</span></p>
+                                            <p>Giá: <span class="price">{{ formatPrice(product.price) }}₫</span></p>
                                             <p>Bảo hành: 1 đổi 1 trong 12 tháng</p>
                                             <p>Phụ kiện: Dây cáp sạc, tai nghe</p>
                                             <p>Tình trạng: Máy mới 100%</p>
                                             <p>Khuyến mại: Hỗ trợ trả góp 0% dành cho các chủ thẻ Ngân hàng Sacombank</p>
                                             <p>Còn hàng: Còn  sản phẩm</p>
-                                            <p class="add-cart text-center"><a href="">Thêm Vào Giỏ Hàng</a></p>
+                                            <p class="add-cart text-center"><a href="#">Thêm Vào Giỏ Hàng</a></p>
                                         </div>
                                     </div>
                             </div>
                                 <div id="product-detail">
                                     <h3>Chi tiết sản phẩm</h3>
-                                    <p class="text-justify"></p>
+                                    <p class="text-justify">{{product.desc}}</p>
                                 </div>
                         </div>
                     </div>
                 </div>
-            </div>     
+            </div>    
  </section>
                 
        
@@ -84,20 +85,19 @@ export default {
     data(){
         return{
             productId: this.$route.params.id,
-            products:[]
+            product:[]
         }
     },
-     props: {
-        name: String,
-        price: String,
-        image: String,
-        soluong: String,
-        desc: String
-    }, 
+    methods: {
+        formatPrice(value) {
+        let val = (value/1).toFixed(0).replace('.', ',')
+        return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+    },
+    },
     created() {
         axios.get("http://127.0.0.1:8000/api/product/" + this.productId)
         .then(response => {
-        this.products = response.data.data
+        this.product = response.data.data
         })
         .catch(e => {
         this.errors.push(e)

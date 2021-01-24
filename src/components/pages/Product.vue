@@ -3,11 +3,6 @@
         <a href="#"><img :src="require(`@/assets/upload/${image}`)" style="height: 100px;" class="img-thumbnail"></a>
         <p><a href="#"></a>{{name}}</p>
         <p class="price">{{ formatPrice(price) }}₫</p>
-        <div class="marsk">
-            <router-link :to="'/detail/' + productId">Xem chi tiết</router-link> 
-           
-            
-        </div>
     </div>
 </template>
 
@@ -19,7 +14,8 @@ export default {
         price: String,
         image: String,
         soluong: String,
-        desc: String
+        desc: String,
+        idProduct: Number
     }, 
     data(){
         return{

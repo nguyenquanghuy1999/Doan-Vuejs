@@ -2,7 +2,8 @@
 <div class="detail">
   <Master>
     <div>
-      <ProductDetail :id="productId"></ProductDetail>
+      <ProductDetail></ProductDetail>
+     
     </div>
   </Master>
 </div>
@@ -10,25 +11,15 @@
 
 
 <script>
+
 import Master from '../layouts/Master'
 import ProductDetail from './ProductDetail'
+
 export default {
     components: {
         Master,
         ProductDetail
     },
-    data() {
-      return {
-        productId: this.$route.params.id,
-       
-    
-      }
-    },
-   
 }
 
 </script>
-
-<style>
-
-</style>

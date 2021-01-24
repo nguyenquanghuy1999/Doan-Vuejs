@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+.add-cart{
+    background: -webkit-linear-gradient(#fe0000, #d10000);
+}
+
 body {
     font-family: arial;
     font-size: 14px;
@@ -60,6 +64,7 @@ body {
     color: #fff;
     line-height: 98px;
     font-weight: bold;
+    
 }
 
 #cart a:first-child {

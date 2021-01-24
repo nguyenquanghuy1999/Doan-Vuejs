@@ -15,6 +15,7 @@ require('@/assets/css/home.css');
 require('@/assets/css/bootstrap.min.frontend.css'),
 require('@/assets/css/font-awesome.min.css'),
 require('@/assets/css/footer.css')
+require('@/assets/css/details.css')
 
 
 Vue.config.productionTip = false
