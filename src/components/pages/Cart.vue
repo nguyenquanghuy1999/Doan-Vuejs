@@ -86,6 +86,34 @@
                             </div>
                         </form>
                     </div>
+                    <div id="xac-nhan">
+                    <h3>Xác nhận mua hàng</h3>
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="email">Email address:</label>
+                            <input required type="email" class="form-control" id="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Họ và tên:</label>
+                            <input required type="text" class="form-control" id="name" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Số điện thoại:</label>
+                            <input required type="number" class="form-control" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Địa chỉ:</label>
+                            <input required type="text" class="form-control" id="add" name="add">
+                        </div>
+                        <div class="form-group">
+                            <label for="note">Ghi chú (Yêu cầu về hàng hóa, vận chuyển,...):</label>
+                            <textarea required type="text" class="form-control" id="note" name="note" style="height: 300px;"></textarea>
+                        </div>
+                        <div class="form-group text-right">
+                            <button type="submit" class="btn btn-default">Thực hiện đơn hàng</button>
+                        </div>
+                    </form>
+                    </div>
                    </div>
                 </div>
             </div>

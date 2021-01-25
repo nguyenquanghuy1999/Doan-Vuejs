@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
-                    <h6>Đồ Án PHP & Mysql Nâng Cao </h6>
+                    <h6>Đồ Án Vuejs </h6>
                     <h5 class="text-justify">NGUYỄN QUANG HUY</h5>
                     <p> 18CDTH11</p>
                 </div>
@@ -12,10 +12,10 @@
                     <h6>Danh Mục</h6>
                     <ul class="footer-links">
                         <li><a href="#"></a></li>
-                        <li><a href="http://127.0.0.1:8000/types/1.html">Macbook</a></li>
-                        <li><a href="http://127.0.0.1:8000/types/2.html">Iphone</a></li>
-                        <li><a href="http://127.0.0.1:8000/types/3.html">IPad</a></li>
-                        <li><a href="http://127.0.0.1:8000/types/4.html">Watch</a></li>
+                        <li><a href="http://localhost:8080/types/1">Macbook</a></li>
+                        <li><a href="http://localhost:8080/types/2">Iphone</a></li>
+                        <li><a href="http://localhost:8080/types/3">IPad</a></li>
+                        <li><a href="http://localhost:8080/types/4">Watch</a></li>
                      
                     </ul>
                 </div>
