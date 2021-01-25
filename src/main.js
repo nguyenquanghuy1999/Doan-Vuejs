@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
+
 Vue.use(VueRouter);
 Vue.use(VueResource);
 
@@ -16,6 +17,8 @@ require('@/assets/css/bootstrap.min.frontend.css'),
 require('@/assets/css/font-awesome.min.css'),
 require('@/assets/css/footer.css')
 require('@/assets/css/details.css')
+require('@/assets/css/cart.css')
+
 
 
 Vue.config.productionTip = false

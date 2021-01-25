@@ -4,12 +4,12 @@
             <div class="row">
                 <div id="sidebar" class="col-md-3" >
                     <nav id="menu">
-                        <ul style="font-weight: bold;">
+                         <ul style="font-weight: bold;">
                             <li class="menu-item" >Danh mục sản phẩm</li>
-                            <li class="menu-item" ><a href="">Macbook</a></li>
-                            <li class="menu-item" ><a href="">Iphone</a></li>
-                            <li class="menu-item" ><a href="">Ipad</a></li>
-                            <li class="menu-item" ><a href="">Watch</a></li>        
+                            <li class="menu-item" ><a href="http://localhost:8080/types/1">Macbook</a></li>
+                            <li class="menu-item" ><a href="http://localhost:8080/types/2">Iphone</a></li>
+                            <li class="menu-item" ><a href="http://localhost:8080/types/3">Ipad</a></li>
+                            <li class="menu-item" ><a href="http://localhost:8080/types/4">Watch</a></li>        
                         </ul>     
                     </nav>
                         <div id="img-quangcao">
@@ -62,7 +62,7 @@
                                             <p>Tình trạng: Máy mới 100%</p>
                                             <p>Khuyến mại: Hỗ trợ trả góp 0% dành cho các chủ thẻ Ngân hàng Sacombank</p>
                                             <p>Còn hàng: Còn  sản phẩm</p>
-                                            <p class="add-cart text-center"><a href="#">Thêm Vào Giỏ Hàng</a></p>
+                                            <p class="add-cart text-center"><router-link to="/cart" @click="addCart(product)">Thêm vào giỏ hàng</router-link></p>
                                         </div>
                                     </div>
                             </div>

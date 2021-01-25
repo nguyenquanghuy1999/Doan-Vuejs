@@ -4,19 +4,21 @@
             <div class="row">
                 <div id="sidebar" class="col-md-3" >
                     <nav id="menu">
-                        <ul style="font-weight: bold;">
+                         <ul style="font-weight: bold;">
                             <li class="menu-item" >Danh mục sản phẩm</li>
-                            <li class="menu-item" ><a href="">Macbook</a></li>
-                            <li class="menu-item" ><a href="">Iphone</a></li>
-                            <li class="menu-item" ><a href="">Ipad</a></li>
-                            <li class="menu-item" ><a href="">Watch</a></li>        
+                            <li class="menu-item" ><a href="http://localhost:8080/types/1">Macbook</a></li>
+                            <li class="menu-item" ><a href="http://localhost:8080/types/2">Iphone</a></li>
+                            <li class="menu-item" ><a href="http://localhost:8080/types/3">Ipad</a></li>
+                            <li class="menu-item" ><a href="http://localhost:8080/types/4">Watch</a></li>        
                         </ul>     
                     </nav>
                         <div id="img-quangcao">
-                            <img src="@/assets/image/quangcao1.jpg" style="width: 100% ;height: 22em; margin-top: 1em;">
-                            <img src="@/assets/image/quangcao2.jpg" style="width: 100% ;height: 22em;">
-                            <img src="@/assets/image/quangcao3.jpg" style="width: 100% ;height: 22em;">
-                            <img src="@/assets/image/slide-3.png" style="width: 100% ;height: 22em;">
+                            <img src="@/assets/image/quangcao1.jpg" style="width: 100% ;height: 23em; margin-top: 1em;">
+                            <img src="@/assets/image/quangcao2.jpg" style="width: 100% ;height: 23em;">
+                            <img src="@/assets/image/quangcao3.jpg" style="width: 100% ;height: 23em;">
+                            <img src="@/assets/image/quangcao4.jpg" style="width: 100% ;height: 23em;">
+                            <img src="@/assets/image/quangcao5.jpg" style="width: 100% ;height: 23em;">
+                            <img src="@/assets/image/slide-3.png" style="width: 100% ;height: 23em;">
                         </div>
                 </div>
                 <div id="main" class="col-md-9">
@@ -82,7 +84,7 @@ export default {
      data() {
         return {
             productList:[],
-            productId: this.$route.params.id
+            types:[],
         }
     },
     created() {
@@ -93,7 +95,15 @@ export default {
     .catch(e => {
       this.errors.push(e)
     })
-  }
+     axios.get(`http://127.0.0.1:8000/api/types`)
+    .then(response => {
+      this.types = response.data.data
+    })
+    .catch(e => {
+      this.errors.push(e)
+    })
+  },
+  
 
 
 }
