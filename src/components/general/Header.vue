@@ -21,7 +21,7 @@
                     <a class="display" href="#">
                         <router-link to="/cart">
                         <img src="@/assets/image/icon-cart.png">
-                        <a style="margin-left: -22%;color: black;">{{0}}</a>
+                        <a style="margin-left: -22%;color: black;">{{GET_CART.length}}</a>
                         </router-link>
                     </a>
                 </div>
@@ -31,13 +31,20 @@
 </template>
 
 <script>
+import {GET_CART} from '../'
+import {mapGetters} from 'vuex'
 export default {
     data(){
         return{
             search: "",
             productId: this.$route.params.id,
         }
-    }
+    },
+    computed: {
+    ...mapGetters({
+      GET_CART
+    })
+  },
  
     
 }

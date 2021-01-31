@@ -15,7 +15,7 @@
                         <p>Tình trạng: Máy mới 100%</p>
                         <p>Khuyến mại: Hỗ trợ trả góp 0% dành cho các chủ thẻ Ngân hàng Sacombank</p>
                         <p>Còn hàng: Còn  sản phẩm</p>
-                        <p class="add-cart text-center"><router-link :to="'/cart/' + productId">Thêm vào giỏ hàng </router-link></p>
+                        <button class="add-cart text-center" @click="addToCart(product)"><router-link :to="'/cart/' + productId">Thêm vào giỏ hàng </router-link></button>
                     </div>
                 </div>
             </div>
@@ -48,6 +48,9 @@ export default {
         let val = (value/1).toFixed(0).replace('.', ',')
         return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
         },
+    addToCart(item) {
+      this.$store.commit("addToCart", item);
+    },
         
     },
     created() {

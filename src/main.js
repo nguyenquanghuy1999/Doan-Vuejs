@@ -4,10 +4,9 @@ import VueRouter from 'vue-router'
 import { router } from './routes'
 import 'bootstrap'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import store from './store';
 
 Vue.use(VueRouter);
-
 
 require('@/assets/css/home.css');
 require('@/assets/css/bootstrap.min.frontend.css'),
@@ -23,5 +22,6 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')
