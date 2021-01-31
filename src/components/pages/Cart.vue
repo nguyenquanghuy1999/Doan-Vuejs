@@ -1,90 +1,45 @@
 <template>
 <Master>
-     <section id="body">
-        <div class="container">
-            <div class="row">
-                <div id="sidebar" class="col-md-3" >
-                    <nav id="menu">
-                         <ul style="font-weight: bold;">
-                            <li class="menu-item" >Danh mục sản phẩm</li>
-                            <li class="menu-item" ><a href="http://localhost:8080/types/1">Macbook</a></li>
-                            <li class="menu-item" ><a href="http://localhost:8080/types/2">Iphone</a></li>
-                            <li class="menu-item" ><a href="http://localhost:8080/types/3">Ipad</a></li>
-                            <li class="menu-item" ><a href="http://localhost:8080/types/4">Watch</a></li>        
-                        </ul>     
-                    </nav>
-                        <div id="img-quangcao">
-                            <img src="@/assets/image/quangcao1.jpg" style="width: 100% ;height: 22em;">
-                            <img src="@/assets/image/quangcao2.jpg" style="width: 100% ;height: 22em;">
-                            <img src="@/assets/image/quangcao3.jpg" style="width: 100% ;height: 22em;">
-                            <img src="@/assets/image/slide-3.png" style="width: 100% ;height: 22em;">
-                        </div>
-                </div>
-                <div id="main" class="col-md-9">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img class="d-block w-100" src="@/assets/image/banner1.jpg" alt="First slide" style="height:25em;">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="@/assets/image/banner2.jpg" alt="Second slide" style="height:25em;">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="@/assets/image/banner3.jpg" alt="Third slide" style="height:25em;" >
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                   <div id="wrap-inner">
-                    <div id="list-cart">
-                        <h3 >Giỏ hàng</h3>
-                        <form>
-                            <table class="table table-bordered .table-responsive text-center" >
-                                <tr class="active">
-                                    <td width="11.111%">Ảnh mô tả</td>
-                                    <td width="22.222%">Tên sản phẩm </td>
-                                    <td width="22.222%">Số lượng</td>
-                                    <td width="16.6665%">Đơn giá</td>
-                                    <td width="16.6665%">Thành tiền</td>
-                                    <td width="11.112%">Xóa</td>
-                                </tr>
-                                
-                                <tr v-for="(cart, n) in carts" :key="cart.id">
-                                    <td><img class="img-responsive" :src="require(`@/assets/upload/${cart.image}`)"></td>
-                                    <td>{{cart.name}}</td>
-                                    <td>
-                                        <div class="form-group">
-                                            <input class="form-control" type="number" v-model="quantity">
-                                        </div>
-                                    </td>
-                                    <td><span class="price"> {{cart.price}}đ</span></td>
-                                    <td><span class="price"> đ</span></td>
-                                    <td><button @click="removeCart(n)">Xóa</button></td>
-                                </tr>
-                    
-                            </table>
-                            <div class="row" id="total-price">
-                                <div class="col-md-6 col-sm-12 col-xs-12">
-                                    Tổng thanh toán: <span class="total-price">{{totalprice}}</span>
+     <Slide>
+         <div id="wrap-inner">
+            <div id="list-cart">
+                <h3 >Giỏ hàng</h3>
+                <form>
+                    <table class="table table-bordered .table-responsive text-center">
+                        <tr class="active">
+                            <td width="11.111%">Ảnh mô tả</td>
+                            <td width="22.222%">Tên sản phẩm </td>
+                            <td width="22.222%">Số lượng</td>
+                            <td width="16.6665%">Đơn giá</td>
+                            <td width="16.6665%">Thành tiền</td>
+                            <td width="11.112%">Xóa</td>
+                        </tr>   
+                     
+                        <tr>
+                            <td><img class="img-responsive" :src="require(`@/assets/upload/${products.image}`)"></td>
+                            <td>{{products.name}}</td>
+                            <td>
+                                <div class="form-group">
+                                    <input class="form-control" type="number" v-model="quantity">
                                 </div>
-                                <div class="col-md-6 col-sm-12 col-xs-12">
-                                    <a href="" class="my-btn btn">Quay lại trang chủ</a>
-                                    <a href="" class="my-btn btn" >Xóa giỏ hàng</a>
-                                </div>
+                            </td>
+                            <td><span class="price"> {{formatPrice(products.price) }}₫</span></td>
+                            <td><span class="price">{{formatPrice(products.price * quantity)}}₫</span></td>
+                            <td><button @click="removeCart(n)">Xóa</button></td>
+                        </tr>
+                        
+
+                    </table>
+                        <div class="row" id="total-price">
+                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                Tổng thanh toán: <span class="total-price">{{formatPrice(products.price * quantity)}}₫</span>
                             </div>
-                        </form>
+                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                <a href="" class="my-btn btn">Quay lại trang chủ</a>
+                                <a href="" class="my-btn btn" >Xóa giỏ hàng</a>
+                            </div>
+                        </div>
+                </form>
                     </div>
                     <div id="xac-nhan">
                     <h3>Xác nhận mua hàng</h3>
@@ -113,12 +68,9 @@
                             <button type="submit" class="btn btn-default">Thực hiện đơn hàng</button>
                         </div>
                     </form>
-                    </div>
-                   </div>
                 </div>
             </div>
-        </div>
-    </section>
+     </Slide>
 </Master>
 
 </template>
@@ -126,10 +78,12 @@
 <script>
 import axios from 'axios'
 import Master from '../layouts/Master.vue'
+import Slide from '../layouts/Slide'
 export default {
-  components: { Master },
+  components: { Master, Slide },
   data(){
       return{
+          productId: this.$route.params.id,
           products:[],
           carts:[],
           cartadd: {
@@ -137,17 +91,19 @@ export default {
               name: '',
               price:'',
               image:'',
-              amount: ''
+              amount: '',
+              
           },
           badge: '0',
           quantity: '1',
           totalprice: '0'
+           
       }
   },
   created(){
     this.viewCart();
 
-    axios.get(`http://127.0.0.1:8000/api/product`)
+    axios.get(`http://127.0.0.1:8000/api/product/` + this.productId)
     .then(response => {
       this.products = response.data.data
     })
@@ -156,6 +112,10 @@ export default {
     })
   },
   methods:{
+        formatPrice(value) {
+        let val = (value/1).toFixed(0).replace('.', ',')
+        return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+        },
       viewCart(){
           if(localStorage.getItem('carts')){
               this.carts = JSON.parse(localStorage.getItem('carts'));

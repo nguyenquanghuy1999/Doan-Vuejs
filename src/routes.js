@@ -1,27 +1,40 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from './components/pages/Home'
-import Detail from './components/pages/Detail'
+import ProductDetail from './components/pages/ProductDetail'
 import Types from './components/pages/Types'
 import Cart from './components/pages/Cart'
+import Search from './components/pages/Search'
+
 
 Vue.use(VueRouter)
 
 export const router = new VueRouter({
     mode: 'history',
     routes: [
-        {path: '/', component: Home},
+        {path: '/', 
+        name: 'home',
+        component: Home},
 
-        {path: '/detail/:id',component: Detail},
+        {path: '/detail/:id',
+        name: 'detail',
+        component: ProductDetail},
         
-        {path: '/types/:id', component: Types},
+        {path: '/types/:id', 
+        name: 'type',
+        component: Types},
 
-        {path:'/cart', component: Cart}
+        {path:'/cart/:id', 
+        name: 'cart',
+        component: Cart},
 
+        {path:'/search',
+        name:'search',
+        component: Search},
+
+       
         
       
-        
-        
               
     ]
 })

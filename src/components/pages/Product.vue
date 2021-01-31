@@ -1,6 +1,10 @@
 <template>
     <div>
-        <a href="#"><img :src="require(`@/assets/upload/${image}`)" style="height: 100px;" class="img-thumbnail"></a>
+        <a>
+            <img :src="require(`@/assets/upload/${image}`)" 
+            style="height: 100px;" 
+            class="img-thumbnail">
+        </a>
         <p><a href="#"></a>{{name}}</p>
         <p class="price">{{ formatPrice(price) }}₫</p>
     </div>
@@ -17,12 +21,6 @@ export default {
         desc: String,
         idProduct: Number
     }, 
-    data(){
-        return{
-             productId: this.$route.params.id,
-            
-        }
-    },
     methods: {
     formatPrice(value) {
         let val = (value/1).toFixed(0).replace('.', ',')

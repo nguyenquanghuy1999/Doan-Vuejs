@@ -3,37 +3,46 @@
         <div class="container">
             <div class="row-logo">
                 <div id="logo" class="col-md-3 col-sm-12 col-xs-12">
-                        <router-link to="/" style="color: white;font-family: cursive;font-weight: bold; font-size:25px">
-                        <img src="@/assets/image/logo.jpg" style="width:38%"/>Apple Store
+                        <router-link to="/" style="color: white;font-family: cursive;font-weight: bold; font-size:25px; text-decoration: none;">
+                        <img src="@/assets/image/logo.jpg" style="width:38%;"/>Apple Store
                         </router-link>
                 </div>
                 <div id="search" class="col-md-6 col-sm-12 col-xs-12">
-                    <form class="navbar-form" role="search" method="get" action="#" style="margin-left: 80px;">
-                        <input type="text" class="form-control" name="result" placeholder="Nhập từ khóa ..." style="color:black">
-                        <button type="submit" class="btn btn-defalt" style="margin-top:28px; "></button>
+                    <form role="search" method="GET" action="/search" class="full-width" style="margin-left: 80px;">
+                        <input type="text" class="form-control" name="result" placeholder="Nhập từ khóa ..."  v-model="search" style="color:black"> 
+                        <router-link type="button" v-bind:to="'/search'">
+                            <button type="button" class="btn btn-defalt" style="margin-top:28px; ">
+                                <!-- <i class="fa fa-search" style="margin-left: -3em;"></i> -->
+                            </button>
+                        </router-link>
                     </form>
                 </div>
                 <div id="cart" class="col-md-2 col-sm-12 col-xs-12" style="margin-left: 87px;">
                     <a class="display" href="#">
+                        <router-link to="/cart">
                         <img src="@/assets/image/icon-cart.png">
-                       <a style="margin-left: -22%;color: black;">0</a>
+                        <a style="margin-left: -22%;color: black;">{{0}}</a>
+                        </router-link>
                     </a>
                 </div>
-               
             </div>   
         </div>
     </header><!-- /header -->
 </template>
 
 <script>
-
 export default {
-    name: 'Header',
-    components: {
-      
+    data(){
+        return{
+            search: "",
+            productId: this.$route.params.id,
+        }
     }
-
+ 
+    
 }
+    
+
 </script>
 
 <style>
