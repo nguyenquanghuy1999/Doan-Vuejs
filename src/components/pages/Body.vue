@@ -1,21 +1,21 @@
 <template>
     <Slide>
-            <div class="title-product">
-                <h3>Các sản phẩm của chúng tôi</h3>
-            </div>
-            <div class="container" style="padding-top: 1%;">
-                <div class="row">
-                    <div class="product-item col-md-3 col-sm-6 col-xs-12" v-for="product in productList" :key="product.id">
-                        <Product :name="product.name" :price="product.price" :image="product.image"></Product>
-                          <div class="marsk">
-                            <router-link :to="'/detail/' + product.id">Xem chi tiết</router-link>
-                          </div>
-                     </div>
-                </div>
-            </div>
-            <div class="pagination">
-              <Pagination></Pagination>
-            </div>          
+      <div class="title-product">
+        <h3>Các sản phẩm của chúng tôi</h3>
+      </div>
+      <div class="container" style="padding-top: 1%;">
+        <div class="row">
+          <div class="product-item col-md-3 col-sm-6 col-xs-12" v-for="product in productList" :key="product.id">
+            <Product :name="product.name" :price="product.price" :image="product.image"></Product>
+              <div class="marsk">
+                <router-link :to="'/detail/' + product.id">Xem chi tiết</router-link>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="pagination">
+        <Pagination></Pagination>
+      </div>          
     </Slide>
 </template>
 
@@ -24,7 +24,6 @@ import axios from 'axios'
 import Product from './Product'
 import Pagination from './Pagination'
 import Slide from '../layouts/Slide'
-
 
 export default {
     components:{

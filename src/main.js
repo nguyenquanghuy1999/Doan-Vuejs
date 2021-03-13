@@ -6,6 +6,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import store from './store';
 
+
 Vue.use(VueRouter);
 
 require('@/assets/css/home.css');
@@ -16,12 +17,10 @@ require('@/assets/css/details.css')
 require('@/assets/css/cart.css')
 
 
-
-
 Vue.config.productionTip = false
 
 new Vue({
-  router,
   store,
+  router,
   render: h => h(App),
 }).$mount('#app')

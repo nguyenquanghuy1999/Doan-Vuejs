@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {GET_CART, SET_CART, INCREMENT_QTY, DECREMENT_QTY, CART_TOTAL, REMOVE_ITEM} from '../constants/mutation-type';
+import { GET_CART, SET_CART, INCREMENT_QTY, DECREMENT_QTY, CART_TOTAL, REMOVE_ITEM} from '../components/constants/mutation-type';
 
 
 Vue.use(Vuex)
@@ -43,22 +43,19 @@ const store = new Vuex.Store({
       state.cartItem.splice(index,1);
       const parsed = JSON.stringify(state.cartItem);
       localStorage.setItem('cart', parsed);
+      
     },
     addToCart(state, item){
         Object.assign(item, {qty: 1});
         if(state.cartItem.find(itemIncart => itemIncart.id === item.id)){
-          alert('San Pham Nay Da Co Trong Gio Hang');
+          alert('Sản phẩm này đã có trong giỏ hàng của bạn');
         } else {
             state.cartItem.push(item)
             const parsed = JSON.stringify(state.cartItem);
             localStorage.setItem('cart', parsed)
-
         }
-
-    }
+      }
     },
-  actions: {
-  },
 });
 
 export default store;

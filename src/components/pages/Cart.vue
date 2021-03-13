@@ -3,7 +3,7 @@
      <Slide>
          <div id="wrap-inner">
             <div id="list-cart">
-                <h3 >Giỏ hàng</h3>
+                <h3 >Giỏ hàng: {{GET_CART.length}} sản phẩm</h3>
                 <form>
                     <table class="table table-bordered .table-responsive text-center">
                         <tr class="active">
@@ -11,33 +11,30 @@
                             <td width="22.222%">Tên sản phẩm </td>
                             <td width="22.222%">Số lượng</td>
                             <td width="16.6665%">Đơn giá</td>
-                            <td width="16.6665%">Thành tiền</td>
                             <td width="11.112%">Xóa</td>
                         </tr>   
                      
-                        <tr>
-                            <td><img class="img-responsive" :src="require(`@/assets/upload/${products.image}`)"></td>
-                            <td>{{products.name}}</td>
+                        <tr v-for="(item, index) in GET_CART" :key="item.id">
+                            <td><img class="img-responsive" :src="require(`@/assets/upload/${item.image}`)"></td>
+                            <td>{{item.name}}</td>
                             <td>
-                                <div class="form-group">
-                                    <input class="form-control" type="number" v-model="quantity">
+                                <div>
+                                    <span class="min" @click="decrementQty(item.id)">-</span>
+                                        <input type="tel" class="text-center inp" :value="item.qty" style="width: 2em;">
+                                    <span class="max" @click="incrementQty(item.id)">+</span>
                                 </div>
                             </td>
-                            <td><span class="price"> {{formatPrice(products.price) }}₫</span></td>
-                            <td><span class="price">{{formatPrice(products.price * quantity)}}₫</span></td>
-                            <td><button @click="removeCart(n)">Xóa</button></td>
+                            <td><span class="price"> {{formatPrice(item.price)}}₫</span></td>
+                            <td><button @click="removeItem(index)">Xóa</button></td>
                         </tr>
                         
 
                     </table>
-                        <div class="row" id="total-price">
-                            <div class="col-md-6 col-sm-12 col-xs-12">
-                                Tổng thanh toán: <span class="total-price">{{formatPrice(products.price * quantity)}}₫</span>
+                        <div id="total-price">
+                            <div style="margin-left: 61%;">
+                                Tổng thanh toán: <span class="total-price">{{formatPrice(CART_TOTAL)}}₫</span>
                             </div>
-                            <div class="col-md-6 col-sm-12 col-xs-12">
-                                <a href="" class="my-btn btn">Quay lại trang chủ</a>
-                                <a href="" class="my-btn btn" >Xóa giỏ hàng</a>
-                            </div>
+                            
                         </div>
                 </form>
                     </div>
@@ -76,79 +73,49 @@
 </template>
 
 <script>
-import axios from 'axios'
+
 import Master from '../layouts/Master.vue'
 import Slide from '../layouts/Slide'
+import {DECREMENT_QTY, GET_CART, INCREMENT_QTY, CART_TOTAL, REMOVE_ITEM} from '../constants/mutation-type'
+import {mapGetters} from 'vuex'
 export default {
   components: { Master, Slide },
-  data(){
-      return{
-          productId: this.$route.params.id,
-          products:[],
-          carts:[],
-          cartadd: {
-              id: '',
-              name: '',
-              price:'',
-              image:'',
-              amount: '',
-              
-          },
-          badge: '0',
-          quantity: '1',
-          totalprice: '0'
-           
-      }
-  },
-  created(){
-    this.viewCart();
-
-    axios.get(`http://127.0.0.1:8000/api/product/` + this.productId)
-    .then(response => {
-      this.products = response.data.data
-    })
-    .catch(e => {
-      this.errors.push(e)
-    })
-  },
-  methods:{
+   methods: {
         formatPrice(value) {
         let val = (value/1).toFixed(0).replace('.', ',')
         return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
         },
-      viewCart(){
-          if(localStorage.getItem('carts')){
-              this.carts = JSON.parse(localStorage.getItem('carts'));
-              this.badge =this.carts.length;
-              this.totalprice= this.carts.reduce((total,item)=>{
-                  return total + this.quantity * item.price;
-              },0)
-          }
-      },
-      addCart(product){
-          this.cartadd.id= product.id;
-          this.cartadd.name= product.name;
-          this.cartadd.image= product.image;
-          this.cartadd.amount= product.amount;
-          this.carts.push(this.cartadd);
-          this.cartadd= {};
-          this.storeCart();
-
-      },
-      removeCart(product){
-         this.carts.splice(product, 1);
-         this.storeCart;
-      },
-      storeCart(){
-          let parsed = JSON.stringify(this.carts);
-          localStorage.setItem('carts',parsed);
-          this.viewCart();
-    }    
+        incrementQty(id) {
+            this.$store.commit(INCREMENT_QTY, id);
+        },
+        decrementQty(id) {
+            this.$store.commit(DECREMENT_QTY, id);
+        },
+        removeItem(index){
+            this.$store.commit(REMOVE_ITEM, index);
+        } 
+  },
+  computed: {
+      ...mapGetters({
+          GET_CART,
+          CART_TOTAL
+      })
   }
-
 }
+
+
 </script>
 
-<style>
+<style scoped>
+.min {
+    background-color: rgb(248, 248, 248);
+    padding: 5px 15px;
+    cursor: pointer;
+}
 
+.max {
+    background-color: rgb(248, 248, 248);
+    padding: 5px 13px;
+    cursor: pointer;
+}
 </style>

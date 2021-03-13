@@ -10,9 +10,12 @@
                             <p><a href="#">{{type.name}}</a></p>
                             <p class="price">{{ formatPrice(type.price) }}₫</p>
                             <div class="marsk">
-                                <router-link :to="'/detail/' + type.id">Xem chi tiết {{idProduct}}</router-link>
+                                <router-link :to="'/detail/' + type.id">Xem chi tiết</router-link>
                             </div>
                         </div>
+                    </div>
+                    <div class="pagination">
+                    <pagination></pagination>
                     </div>
                 </div>
             </div>
@@ -24,10 +27,11 @@
 import axios from 'axios'
 import Slide from '../layouts/Slide'
 import Master from '../layouts/Master'
+import Pagination from './Pagination.vue'
 
 
 export default {
-  components: { Slide, Master},
+  components: { Slide, Master,Pagination},
     props:{
         id: Number,
         name: String,
@@ -63,6 +67,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.pagination{
+    margin: 4% 0 0 16%;
+}
 
 </style>
